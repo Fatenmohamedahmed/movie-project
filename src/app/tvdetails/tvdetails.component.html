@@ -1,0 +1,27 @@
+<div class="container py-5">
+<div class="row">
+    <div class="col-md-4 position-relative">
+        <img [src]="imgprefix+tvdetails.poster_path" alt="" class="w-100">
+        <div class="vote bg-light p-2 position-absolute top-0">{{tvdetails.vote_average}}</div>
+    </div>
+    <div class="col-md-8">
+        <h2 class="fw-bold text-info">{{tvdetails.name}}</h2>
+        <p class="p-4">{{tvdetails.overview}}</p>
+        <h5 class="text-info">genres:</h5>
+        <ul>
+            <li *ngFor="let g of tvdetails.genres">{{g.name}}</li>
+        </ul>
+        <h5 class="text-info">production_companies:</h5>
+        <ul>
+            <li *ngFor="let g of tvdetails.production_companies">{{g.name}}</li>
+        </ul>
+        <h5 class="text-info">spoken_languages :</h5>
+        <ul>
+            <li *ngFor="let g of tvdetails.spoken_languages">{{g.name}}</li>
+        </ul>
+        <h5><span class="text-info ">number_of_episodes : </span>{{tvdetails.number_of_episodes}}</h5>
+        <h5><span class="text-info ">number_of_seasons : </span>{{tvdetails.number_of_seasons}}</h5>
+
+    </div>
+</div>
+</div>

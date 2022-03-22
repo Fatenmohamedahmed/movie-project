@@ -1,0 +1,24 @@
+<div class="container py-5">
+<h2 class="my-2 text-info fw-bold">Login now</h2>
+<div *ngIf="error" class="alert alert-danger">
+    <h6>{{error}}</h6>
+</div>
+<form action="" [formGroup]="loginform" (ngSubmit)="submitform(loginform)">
+    <label for="email" class="my-2">email:</label>
+    <input type="email" id="email" formControlName="email" class="form-control ">
+    <div *ngIf="loginform.get('email')?.errors && loginform.get('email')?.touched" class="alert alert-danger my-3">
+        <p *ngIf="loginform.get('email')?.errors?.['required']">Email Required</p>
+        <p *ngIf="loginform.get('email')?.errors?.['email']">Email is invalid</p>
+    </div>
+    <label for="password" class="my-2">password:</label>
+    <input type="password" id="password" formControlName="password" class="form-control ">
+    <div *ngIf="loginform.get('password')?.errors && loginform.get('password')?.touched" class="alert alert-danger my-3">
+        <p *ngIf="loginform.get('password')?.errors?.['required']">Password Required</p>
+        <p *ngIf="loginform.get('password')?.errors?.['pattern']">password must start with upper case then lower case from length2-5</p>
+    </div>
+    <button [disabled]="loginform.invalid" class="btn btn-info my-3" type="submit">Login</button>
+    <a routerLink="/Register" (click)="gotoregister()" class="mx-3 text-white text-decoration-none">If You Dont Have Account?</a>   
+
+   
+</form>
+</div>

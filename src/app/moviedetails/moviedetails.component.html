@@ -1,0 +1,32 @@
+<div class="container py-5">
+<div class="row">
+    <div class="col-md-4 position-relative">
+        <img [src]="imgprefix+moviedetails.poster_path" alt="" class="w-100">
+        <div class="vote bg-light p-2 position-absolute top-0">{{moviedetails.vote_average}}</div>
+    </div>
+    <div class="col-md-8">
+        <h2 class="fw-bold text-info">{{moviedetails.title}}</h2>
+        <p class="p-4">{{moviedetails.overview}}</p>
+        <h5 class="text-info">genres:</h5>
+        <ul>
+            <li *ngFor="let g of moviedetails.genres">{{g.name}}</li>
+        </ul>
+        <h5 class="text-info">production_companies:</h5>
+        <ul>
+            <li *ngFor="let g of moviedetails.production_companies">{{g.name}}</li>
+        </ul>
+        <h5 class="text-info">spoken_languages :</h5>
+        <ul>
+            <li *ngFor="let g of moviedetails.spoken_languages">{{g.name}}</li>
+        </ul>
+        <div *ngIf="moviedetails.belongs_to_collection">
+            <h5 class="text-info">belongs_to_collection :</h5>
+            <ul>
+                <li class="p-2">{{moviedetails.belongs_to_collection.name}}</li>
+                <li class="p-2"> <img [src]="imgprefix+moviedetails.belongs_to_collection.poster_path" alt="" class="w-25 "></li>
+            </ul>
+        </div>
+        <h5><span class="text-info ">release_date : </span>{{moviedetails.release_date}}</h5>
+    </div>
+</div>
+</div>

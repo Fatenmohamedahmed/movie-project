@@ -1,0 +1,62 @@
+<app-header [movieheader]="movieArray"></app-header>
+
+<div class="container py-5">
+<div class="row py-5">
+    <div class="col-md-4 py-5">
+        <div class="border w-25"></div>
+        <h2 class="py-3">Trending movies <br>To Watch Now</h2>
+        <p class="text-muted">Trending Movies To Watch Now</p>
+        <div class="border w-100"></div>
+
+    </div>
+    <div *ngFor="let movie of movieArray" class="col-md-2">
+        <div class="movies position-relative">
+            <a [routerLink]="['/moviedetails',movie.id]" class="text-white">
+                <img [src]="imgprefix+movie.poster_path" alt="" class="w-100">
+                <h3 class="h6 fw-bold py-3">{{movie.title}}</h3>
+                <div class="vote bg-light p-2 position-absolute top-0 end-0">{{movie.vote_average}}</div>
+            </a>
+        </div>    
+    </div>
+</div>
+
+<div class="row py-5">
+    <div class="col-md-4 py-5">
+        <div class="border w-25"></div>
+        <h2 class="py-3">Trending Tv <br>To Watch Now</h2>
+        <p class="text-muted">Trending Tv To Watch Now</p>
+        <h2></h2>
+        <div class="border w-100"></div>
+
+    </div>
+    <div *ngFor="let tv of tvArray" class="col-md-2">
+        <div class="tv position-relative">
+            <a [routerLink]="['/tvdetails',tv.id]" class="text-white">
+                <img [src]="imgprefix+tv.poster_path" alt="" class="w-100">
+                <h3 class="h6 fw-bold py-3">{{tv.name}}</h3>
+                <div class="vote bg-light p-2 position-absolute top-0 end-0">{{tv.vote_average}}</div>
+            </a>
+        </div>    
+    </div>
+</div>
+
+
+<div class="row py-5">
+    <div class="col-md-4 py-5">
+        <div class="border w-25"></div>
+        <h2 class="py-3">Trending Person <br>To Watch Now</h2>
+        <p class="text-muted">Trending Person To Watch Now</p>
+        <h2></h2>
+        <div class="border w-100"></div>
+
+    </div>
+    <div *ngFor="let person of personArray" class="col-md-2">
+        <div class="person position-relative">
+            <a [routerLink]="['/persondetails',person.id]" class="text-white">
+                <img [src]="imgprefix+person.profile_path" alt="" class="w-100">
+                <h3 class="h6 fw-bold py-3">{{person.name}}</h3>
+            </a>
+        </div>    
+    </div>
+</div>
+</div>
